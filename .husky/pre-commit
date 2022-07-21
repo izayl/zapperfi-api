@@ -1,0 +1,7 @@
+#!/bin/sh
+. "$(dirname $0)/_/husky.sh"
+
+yarn lint-staged
+yarn test
+yarn istanbul-badges-readme
+git add README.md
