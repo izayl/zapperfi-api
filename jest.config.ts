@@ -1,10 +1,14 @@
+import type { InitialOptionsTsJest } from 'ts-jest'
+
 /*
  * For a detailed explanation regarding each configuration property and type check, visit:
  * https://jestjs.io/docs/en/configuration.html
  */
 
-export default {
+const config: InitialOptionsTsJest = {
   preset: 'ts-jest',
+  testMatch: ['**/__tests__/**/*.spec.ts'],
+  setupFiles: ['dotenv/config'],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.test.json',
@@ -12,6 +16,8 @@ export default {
   },
   coverageDirectory: 'coverage',
   coverageReporters: ['json-summary'],
-  testEnvironment: 'node',
+  testEnvironment: 'jest-environment-node',
   watchPathIgnorePatterns: ['dist', 'node_modules'],
 }
+
+export default config
