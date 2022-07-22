@@ -5,7 +5,7 @@
   <p align="center"><sub>Don't forget to leave a ⭐ if you found this useful.</sub></p>
 </p>
 
-<!-- ![CI](https://github.com/izayl/zapperfi-api/workflows/CI/badge.svg) -->
+![Test](https://github.com/izayl/zapperfi-api/workflows/TEST/badge.svg)
 ![npm](https://img.shields.io/npm/v/zapperfi-api)
 ![npm](https://img.shields.io/npm/dm/zapperfi-api)
 ![Lines](https://img.shields.io/badge/Coverage-96.88%25-brightgreen.svg)
@@ -24,6 +24,8 @@ $ pnpm add zapperfi-api
 ```
 
 ## API
+
+all the [zapperfi v2 api](https://api.zapper.fi/api/static/index.html) have wrappered.
 
 - [apps](src/v2/methods/apps.ts)
 - [balances](src/v2/methods/balances.ts)
