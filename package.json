@@ -22,7 +22,8 @@
     "postpublish": "pinst --enable",
     "release": "standard-version --no-verify",
     "test": "jest",
-    "build": "tsc --module commonjs && rollup -c rollup.config.ts"
+    "build": "tsc --module commonjs && rollup -c rollup.config.ts",
+    "diff": "node ./scripts/openapi-diff.mjs"
   },
   "eslintConfig": {
     "extends": "@izayl/eslint-config-ts",
@@ -66,5 +67,8 @@
   },
   "dependencies": {
     "axios": "^0.27.2"
+  },
+  "optionalDependencies": {
+    "openapi-diff": "^0.23.5"
   }
 }
