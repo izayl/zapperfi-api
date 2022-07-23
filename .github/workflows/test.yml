@@ -25,3 +25,5 @@ jobs:
           cache: 'pnpm'
       - run: pnpm install --frozen-lockfile
       - run: pnpm test
+        env:
+          API_KEY: ${{ secrets.API_KEY }}

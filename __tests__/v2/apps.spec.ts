@@ -1,6 +1,6 @@
 import { V2Client } from '../../src'
 import { Network } from '../../src/v2/models'
-import { config } from './config'
+import { config } from '../config'
 
 describe('/v2/apps | Get supported applications.', () => {
   const client = new V2Client(config)

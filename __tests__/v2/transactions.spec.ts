@@ -1,6 +1,6 @@
 import { V2Client } from '../../src'
 import { Network } from '../../src/v2/models'
-import { config } from './config'
+import { config } from '../config'
 
 describe('/v2/transactions | Historical Transactions.', () => {
   const client = new V2Client(config)
@@ -16,7 +16,7 @@ describe('/v2/transactions | Historical Transactions.', () => {
 
     it('should accept address', () => {
       const parameters = {
-        address: 'vitalik.eth',
+        address: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
         network: Network.ETHEREUM_MAINNET,
       }
       client.transactions.get(parameters)
@@ -33,7 +33,7 @@ describe('/v2/transactions | Historical Transactions.', () => {
 
     it('should accept addresses', () => {
       const parameters = {
-        addresses: ['vitalik.eth'],
+        addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
         network: Network.ETHEREUM_MAINNET,
       }
       client.transactions.get(parameters)

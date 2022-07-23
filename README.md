@@ -38,7 +38,45 @@ the [zapperfi v2 api](https://api.zapper.fi/api/static/index.html) have been wra
 
 ## Examples
 
-TBD
+### get addresses balances
+
+```ts
+import { V2Client, Network } from 'zapperfi-api'
+
+const client = new V2Client({
+  apiKey: process.env.ZAPPER_API_KEY
+})
+
+const parameters = {
+  networks: [Network.ETHEREUM_MAINNET],
+  addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
+}
+
+// use callback style
+const callback = (err, data) => {
+  if (err) throw err
+
+  const { type, payload } = data
+
+  if (type === 'partial') {
+    // process payload with every incoming message payload
+    // faster than full payload, but payload is not full
+    ...
+  }
+
+  if (type === 'full') {
+    // or, just process the final payload
+    // slower than partial payload, but payload is full
+    ...
+  }
+}
+client.balances.get(parameters, callback)
+
+
+// or, use async/await style
+// but it only return the final full payload
+const balances = await client.balances.get(parameters)
+```
 
 ## Donations
 

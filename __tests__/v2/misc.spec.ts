@@ -1,5 +1,5 @@
 import { V2Client, V2Models } from '../../src'
-import { config } from './config'
+import { config } from '../config'
 
 const { Network, Currency, TimeFrame } = V2Models
 
