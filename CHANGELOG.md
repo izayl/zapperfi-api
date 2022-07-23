@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.5](https://github.com/izayl/zapperfi-api/compare/v0.0.4...v0.0.5) (2022-07-23)
+
+
+### Features
+
+* support balances eventsource api ([#8](https://github.com/izayl/zapperfi-api/issues/8)) ([58d208b](https://github.com/izayl/zapperfi-api/commit/58d208b4055c4395fac2d4588014259cb98c4557))
+
 ### [0.0.4](https://github.com/izayl/zapperfi-api/compare/v0.0.3...v0.0.4) (2022-07-23)
 
 
