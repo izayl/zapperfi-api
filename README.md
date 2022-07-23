@@ -34,7 +34,7 @@ the [zapperfi v2 api](https://api.zapper.fi/api/static/index.html) have been wra
 - [x] [transactions](src/v2/method/transactions.ts)
 - [x] [zapIn](src/v2/methods/zapIn.ts)
 - [x] [zapOut](src/v2/methods/zapOut.ts)
-- [ ] nft
+- [x] [nft](src/v2/methods/nft.ts)
 
 ## Examples
 

@@ -1603,6 +1603,299 @@
         ]
       }
     },
+    "/v2/nft/balances/net-worth": {
+      "get": {
+        "operationId": "NftController_getNetWorth",
+        "parameters": [
+          {
+            "name": "addresses",
+            "required": true,
+            "in": "query",
+            "description": "User addresses",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "NFT Balances"
+        ]
+      }
+    },
+    "/v2/nft/balances/collections": {
+      "get": {
+        "operationId": "NftController_getBalanceCollections",
+        "parameters": [
+          {
+            "name": "addresses",
+            "required": true,
+            "in": "query",
+            "description": "User addresses",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "minCollectionValueUsd",
+            "required": false,
+            "in": "query",
+            "description": "Returns only collections with an estimated value above",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Returns only collections with name starting with",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collectionAddresses",
+            "required": false,
+            "in": "query",
+            "description": "Returns only collections provided",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum items to return. Limited to 25.",
+            "schema": {
+              "default": "25",
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Cursor used to paginate the results",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "NFT Balances"
+        ]
+      }
+    },
+    "/v2/nft/balances/collections-totals": {
+      "get": {
+        "operationId": "NftController_getBalanceCollectionsTotals",
+        "parameters": [
+          {
+            "name": "addresses",
+            "required": true,
+            "in": "query",
+            "description": "User addresses",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "minCollectionValueUsd",
+            "required": false,
+            "in": "query",
+            "description": "Returns only collections with an estimated value above",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Returns only collections with name starting with",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collectionAddresses",
+            "required": false,
+            "in": "query",
+            "description": "Returns only collections provided",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "NFT Balances"
+        ]
+      }
+    },
+    "/v2/nft/balances/tokens": {
+      "get": {
+        "operationId": "NftController_getBalanceTokens",
+        "parameters": [
+          {
+            "name": "addresses",
+            "required": true,
+            "in": "query",
+            "description": "User addresses",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "minEstimatedValueUsd",
+            "required": false,
+            "in": "query",
+            "description": "Returns only tokens with an estimated value above",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Returns only tokens from collections with name starting with",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collectionAddresses",
+            "required": false,
+            "in": "query",
+            "description": "Returns only tokens from collections provided",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "limit",
+            "required": false,
+            "in": "query",
+            "description": "Maximum items to return. Limited and defaults to 25.",
+            "schema": {
+              "default": "25",
+              "type": "string"
+            }
+          },
+          {
+            "name": "cursor",
+            "required": false,
+            "in": "query",
+            "description": "Cursor used to paginate the results",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "NFT Balances"
+        ]
+      }
+    },
+    "/v2/nft/balances/tokens-totals": {
+      "get": {
+        "operationId": "NftController_getBalanceTokensTotals",
+        "parameters": [
+          {
+            "name": "addresses",
+            "required": true,
+            "in": "query",
+            "description": "User addresses",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "minEstimatedValueUsd",
+            "required": false,
+            "in": "query",
+            "description": "Returns only tokens with an estimated value above",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "search",
+            "required": false,
+            "in": "query",
+            "description": "Returns only tokens from collections with name starting with",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "collectionAddresses",
+            "required": false,
+            "in": "query",
+            "description": "Returns only tokens from collections provided",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "NFT Balances"
+        ]
+      }
+    },
     "/v2/transactions": {
       "get": {
         "operationId": "TransactionController_getTransactions",

@@ -1,5 +1,5 @@
 import { BaseClient } from '../client'
-import { Apps, Balances, Exchange, Misc, Transactions, ZapIn, ZapOut } from './methods'
+import { Apps, Balances, Exchange, Misc, NFT, Transactions, ZapIn, ZapOut } from './methods'
 
 export class V2Client extends BaseClient {
   apps = new Apps(this)
@@ -9,4 +9,5 @@ export class V2Client extends BaseClient {
   zapOut = new ZapOut(this)
   exchange = new Exchange(this)
   balances = new Balances(this)
+  nft = new NFT(this)
 }
