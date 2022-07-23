@@ -1,0 +1,1982 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/v2/prices": {
+      "get": {
+        "operationId": "PricesController_listPricesV3",
+        "summary": "Token Prices",
+        "description": "Retrieve supported tokens and their prices",
+        "parameters": [
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve prices for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Miscellaneous Data Endpoints"
+        ]
+      }
+    },
+    "/v2/prices/{tokenAddress}": {
+      "get": {
+        "operationId": "PricesController_getTokenPrices",
+        "summary": "Token Prices",
+        "description": "Retrieve supported tokens and their prices",
+        "parameters": [
+          {
+            "name": "tokenAddress",
+            "required": true,
+            "in": "path",
+            "description": "The token address for which to fetch price information",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve prices for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "timeFrame",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve prices for this timeframe",
+            "schema": {
+              "enum": [
+                "hour",
+                "day",
+                "week",
+                "month",
+                "year"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "currency",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve prices for this currency",
+            "schema": {
+              "enum": [
+                "USD",
+                "EUR",
+                "GBP",
+                "CAD",
+                "CNY",
+                "KRW",
+                "JPY",
+                "RUB",
+                "AUD",
+                "NZD",
+                "CHF",
+                "SGD",
+                "INR",
+                "BRL",
+                "ETH",
+                "BTC",
+                "HKD",
+                "SEK",
+                "NOK",
+                "MXN",
+                "TRY"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Miscellaneous Data Endpoints"
+        ]
+      }
+    },
+    "/v2/gas-prices": {
+      "get": {
+        "operationId": "GasPriceController_getGasPrice",
+        "summary": "Gas Price",
+        "description": "Retrieve a gas price aggregated from multiple different sources",
+        "parameters": [
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve gas price for this network",
+            "schema": {
+              "default": "ethereum",
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "eip1559",
+            "required": true,
+            "in": "query",
+            "description": "Retrieve post London gas price details",
+            "schema": {
+              "default": false,
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GasPricesResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Miscellaneous Data Endpoints"
+        ]
+      }
+    },
+    "/v2/apps/{appId}/balances": {
+      "get": {
+        "operationId": "BalanceController_getAppBalances",
+        "parameters": [
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application for which to retrieve the wallet balances",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "addresses[]",
+            "required": true,
+            "in": "query",
+            "description": "Addresses for which to retrieve balances",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve application balances for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Balances"
+        ]
+      }
+    },
+    "/v2/apps/balances/supported": {
+      "get": {
+        "operationId": "BalanceController_getSupportedBalances",
+        "parameters": [
+          {
+            "name": "addresses[]",
+            "required": true,
+            "in": "query",
+            "description": "Addresses for which to retrieve balances",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Balances"
+        ]
+      }
+    },
+    "/v2/balances": {
+      "get": {
+        "operationId": "BalanceController_getBalances",
+        "summary": "Balances",
+        "description": "Gets the balances for a set of addresses.",
+        "parameters": [
+          {
+            "name": "addresses[]",
+            "required": true,
+            "in": "query",
+            "description": "Addresses for which to retrieve balances",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "networks[]",
+            "required": false,
+            "in": "query",
+            "description": "Networks for which to retrieve balances",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "ethereum",
+                  "polygon",
+                  "optimism",
+                  "gnosis",
+                  "binance-smart-chain",
+                  "fantom",
+                  "avalanche",
+                  "arbitrum",
+                  "celo",
+                  "harmony",
+                  "moonriver",
+                  "bitcoin",
+                  "cronos",
+                  "aurora",
+                  "evmos"
+                ]
+              }
+            }
+          },
+          {
+            "name": "bundled",
+            "required": false,
+            "in": "query",
+            "description": "Set to false to receive balance individually for each addresses, instead of bundled together",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Balances"
+        ]
+      }
+    },
+    "/v2/zap-in/{type}/supported": {
+      "get": {
+        "operationId": "ZapInController_getSupportedZapIns",
+        "summary": "Supported Zap Ins",
+        "description": "Provides a list of networks to app IDs that are supported by the Zap In routes.",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "Type of zap-in",
+            "schema": {
+              "enum": [
+                "base",
+                "claimable",
+                "collateral",
+                "insurance",
+                "interest-bearing",
+                "leveraged-position",
+                "nft",
+                "option",
+                "pool",
+                "vault"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Zap In"
+        ]
+      }
+    },
+    "/v2/zap-in/{type}/{appId}/approval-state": {
+      "get": {
+        "operationId": "ZapInController_getZapInApprovalState",
+        "summary": "Zap In Approval State",
+        "description": "Retrieves an ERC20 approval status for an application zap-in",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "Type of zap in",
+            "schema": {
+              "enum": [
+                "base",
+                "claimable",
+                "collateral",
+                "insurance",
+                "interest-bearing",
+                "leveraged-position",
+                "nft",
+                "option",
+                "pool",
+                "vault"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application to which to zap in",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the seller",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token to sell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amount",
+            "required": false,
+            "in": "query",
+            "description": "Amount to validate against approved amount; defaults to user balance",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve approval state for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Zap In"
+        ]
+      }
+    },
+    "/v2/zap-in/{type}/{appId}/approval-transaction": {
+      "get": {
+        "operationId": "ZapInController_getZapInApprovalTransaction",
+        "summary": "Zap In Approval Transaction",
+        "description": "Builds an ERC20 approval transaction for an application zap-in",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "Type of zap in",
+            "schema": {
+              "enum": [
+                "base",
+                "claimable",
+                "collateral",
+                "insurance",
+                "interest-bearing",
+                "leveraged-position",
+                "nft",
+                "option",
+                "pool",
+                "vault"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application to which to zap in",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gasPrice",
+            "required": false,
+            "in": "query",
+            "description": "Gas price (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxPriorityFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max priority gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the seller",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token to sell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amount",
+            "required": false,
+            "in": "query",
+            "description": "Amount to approve; defaults to user balance",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "allowInfinite",
+            "required": false,
+            "in": "query",
+            "description": "Ignore the amount parameter and approve infinite allowance",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve approval transaction for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Zap In"
+        ]
+      }
+    },
+    "/v2/zap-in/{type}/{appId}/transaction": {
+      "get": {
+        "operationId": "ZapInController_getZapInTransaction",
+        "summary": "Zap In Transaction",
+        "description": "Builds a zap-in transaction for usage with Web3, complete with best swap from 0x.",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "Type of zap in",
+            "schema": {
+              "enum": [
+                "base",
+                "claimable",
+                "collateral",
+                "insurance",
+                "interest-bearing",
+                "leveraged-position",
+                "nft",
+                "option",
+                "pool",
+                "vault"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application to which to zap in",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gasPrice",
+            "required": false,
+            "in": "query",
+            "description": "Gas price (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxPriorityFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max priority gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the seller",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellAmount",
+            "required": true,
+            "in": "query",
+            "description": "Amount to sell in base units of the sell token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token to sell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "poolAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the pool",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "payoutTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the payout token (for bonds only)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slippagePercentage",
+            "required": true,
+            "in": "query",
+            "description": "Slippage percentage as a decimal value",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Build zap in transaction on this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "affiliateAddress",
+            "required": false,
+            "in": "query",
+            "description": "Affiliate address to receive goodwill and fees when enabled",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "partnerId",
+            "required": true,
+            "in": "query",
+            "description": "PartnerId address (for Yearn Zap only)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Zap In"
+        ]
+      }
+    },
+    "/v2/zap-out/{type}/supported": {
+      "get": {
+        "operationId": "ZapOutController_getSupportedZapOuts",
+        "summary": "Supported Zap Outs",
+        "description": "Provides a list of networks to app IDs that are supported by the Zap Out routes.",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "Type of zap-out",
+            "schema": {
+              "enum": [
+                "base",
+                "claimable",
+                "collateral",
+                "insurance",
+                "interest-bearing",
+                "leveraged-position",
+                "nft",
+                "option",
+                "pool",
+                "vault"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Zap Out"
+        ]
+      }
+    },
+    "/v2/zap-out/{type}/{appId}/approval-state": {
+      "get": {
+        "operationId": "ZapOutController_getZapOutApprovalState",
+        "summary": "Zap Out Approval State",
+        "description": "Retrieves an ERC20 approval status for an application zap-out",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "Type of zap out",
+            "schema": {
+              "enum": [
+                "base",
+                "claimable",
+                "collateral",
+                "insurance",
+                "interest-bearing",
+                "leveraged-position",
+                "nft",
+                "option",
+                "pool",
+                "vault"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application from which to zap out",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the seller",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token to sell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amount",
+            "required": false,
+            "in": "query",
+            "description": "Amount to validate against approved amount; defaults to user balance",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve approval state for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Zap Out"
+        ]
+      }
+    },
+    "/v2/zap-out/{type}/{appId}/approval-transaction": {
+      "get": {
+        "operationId": "ZapOutController_getZapOutApprovalTransaction",
+        "summary": "Zap Out Approval Transaction",
+        "description": "Builds an ERC20 approval transaction for an application zap-out",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "Type of zap out",
+            "schema": {
+              "enum": [
+                "base",
+                "claimable",
+                "collateral",
+                "insurance",
+                "interest-bearing",
+                "leveraged-position",
+                "nft",
+                "option",
+                "pool",
+                "vault"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application from which to zap out",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gasPrice",
+            "required": false,
+            "in": "query",
+            "description": "Gas price (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxPriorityFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max priority gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the seller",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token to sell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "amount",
+            "required": false,
+            "in": "query",
+            "description": "Amount to approve; defaults to user balance",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "allowInfinite",
+            "required": false,
+            "in": "query",
+            "description": "Ignore the amount parameter and approve infinite allowance",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve approval transaction for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Zap Out"
+        ]
+      }
+    },
+    "/v2/zap-out/{type}/{appId}/transaction": {
+      "get": {
+        "operationId": "ZapOutController_getZapOutTransaction",
+        "summary": "Zap Out Transaction",
+        "description": "Builds a zap-out transaction for usage with Web3, complete with best swap from 0x.",
+        "parameters": [
+          {
+            "name": "type",
+            "required": true,
+            "in": "path",
+            "description": "Type of zap out",
+            "schema": {
+              "enum": [
+                "base",
+                "claimable",
+                "collateral",
+                "insurance",
+                "interest-bearing",
+                "leveraged-position",
+                "nft",
+                "option",
+                "pool",
+                "vault"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application from which to zap out",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gasPrice",
+            "required": false,
+            "in": "query",
+            "description": "Gas price (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxPriorityFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max priority gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the seller",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellAmount",
+            "required": true,
+            "in": "query",
+            "description": "Amount to sell in base units of the pool token",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token to receive",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "poolAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the pool",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slippagePercentage",
+            "required": true,
+            "in": "query",
+            "description": "Slippage percentage as a decimal value",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "signature",
+            "required": false,
+            "in": "query",
+            "description": "Signature for zap outs that support gasless transactions",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Build zap out transaction on this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "affiliateAddress",
+            "required": false,
+            "in": "query",
+            "description": "Affiliate address to receive goodwill and fees when enabled",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Transaction"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Zap Out"
+        ]
+      }
+    },
+    "/v2/exchange/price": {
+      "get": {
+        "operationId": "ExchangeController_getExchangePrice",
+        "summary": "Exchange Price",
+        "description": "Returns data about the amount received if a trade would be made. **Should be called whenever a price needs to be calculated.**",
+        "parameters": [
+          {
+            "name": "gasPrice",
+            "required": false,
+            "in": "query",
+            "description": "Gas price (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxPriorityFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max priority gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token that is being sold",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buyTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token that is being bought",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellAmount",
+            "required": true,
+            "in": "query",
+            "description": "Amount to sell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerAddress",
+            "required": false,
+            "in": "query",
+            "description": "Address of the owner",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slippagePercentage",
+            "required": false,
+            "in": "query",
+            "description": "Slippage percentage as a decimal value",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Network where the swap would be made",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Exchange"
+        ]
+      }
+    },
+    "/v2/exchange/quote": {
+      "get": {
+        "operationId": "ExchangeController_getExchangeQuote",
+        "summary": "Exchange Quote",
+        "description": "Returns both the relative price for a trade as well as the call data used to sumbit a transaction for a trade. **Should only be called when a trade is ready to be submitted.**",
+        "parameters": [
+          {
+            "name": "gasPrice",
+            "required": false,
+            "in": "query",
+            "description": "Gas price (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "maxPriorityFeePerGas",
+            "required": false,
+            "in": "query",
+            "description": "Max priority gas fee (wei)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token that is being sold",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "buyTokenAddress",
+            "required": true,
+            "in": "query",
+            "description": "Address of the token that is being bought",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "sellAmount",
+            "required": true,
+            "in": "query",
+            "description": "Amount to sell",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ownerAddress",
+            "required": false,
+            "in": "query",
+            "description": "Address of the owner",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "slippagePercentage",
+            "required": false,
+            "in": "query",
+            "description": "Slippage percentage as a decimal value",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Network where the swap would be made",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Exchange"
+        ]
+      }
+    },
+    "/v2/exchange/supported": {
+      "get": {
+        "operationId": "ExchangeController_getSupportedExchanges",
+        "summary": "Supported exchanges",
+        "description": "Returns the exchanges supported by Zapper API.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Exchange"
+        ]
+      }
+    },
+    "/v2/transactions": {
+      "get": {
+        "operationId": "TransactionController_getTransactions",
+        "summary": "Historical Transactions",
+        "description": "Data on past transactions for addresses",
+        "parameters": [
+          {
+            "name": "address",
+            "required": true,
+            "in": "query",
+            "description": "Address to get historical transactions for",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "addresses[]",
+            "required": true,
+            "in": "query",
+            "description": "Addresses for which to retrieve ENS",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "network",
+            "required": false,
+            "in": "query",
+            "description": "Retrieve transactions for this network or all supported networks if not specified",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Historical Transactions"
+        ]
+      }
+    },
+    "/v2/apps/{appId}/positions": {
+      "get": {
+        "operationId": "PositionController_getContractPositions",
+        "summary": "Application Positions",
+        "description": "Retrieve positions (non-tokenized) for a given application",
+        "parameters": [
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application for which to retrieve contract positions.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "required": true,
+            "in": "query",
+            "description": "Retrieve positions for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "groupId",
+            "required": true,
+            "in": "query",
+            "description": "Retrieve specific position group within the app",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Apps"
+        ]
+      }
+    },
+    "/v2/apps/{appId}/tokens": {
+      "get": {
+        "operationId": "PositionController_getTokens",
+        "summary": "Application Tokens",
+        "description": "Retrieve tokens for a given application",
+        "parameters": [
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "description": "ID of the application for which to retrieve contract positions.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "network",
+            "required": true,
+            "in": "query",
+            "description": "Retrieve positions for this network",
+            "schema": {
+              "enum": [
+                "ethereum",
+                "polygon",
+                "optimism",
+                "gnosis",
+                "binance-smart-chain",
+                "fantom",
+                "avalanche",
+                "arbitrum",
+                "celo",
+                "harmony",
+                "moonriver",
+                "bitcoin",
+                "cronos",
+                "aurora",
+                "evmos"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "name": "groupId",
+            "required": true,
+            "in": "query",
+            "description": "Retrieve specific position group within the app",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Apps"
+        ]
+      }
+    },
+    "/v2/apps": {
+      "get": {
+        "operationId": "AppsController_getApps",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Apps"
+        ]
+      }
+    },
+    "/v2/apps/{appId}": {
+      "get": {
+        "operationId": "AppsController_getApp",
+        "parameters": [
+          {
+            "name": "appId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ],
+        "tags": [
+          "Apps"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "Zapper API",
+    "description": "The Zapper API provides some of the most robust Defi related data, everything from liquidity and prices on different AMMs to complex Defi protocol balances all in one convenient place. In addition, the API also supports bridging between different networks as well as formatted Zap transaction endpoints. <br/><br/><br/> To obtain an API key submit a <a href=\"https://zapperfi.zendesk.com/hc/en-us/requests/new\">Zendesk ticket</a>.",
+    "version": "2.0",
+    "contact": {}
+  },
+  "tags": [
+    {
+      "name": "Apps",
+      "description": "Get supported applications."
+    },
+    {
+      "name": "Balances",
+      "description": "Get balances of different supported applications for a specific address."
+    },
+    {
+      "name": "NFT Balances",
+      "description": "Get Ethereum NFT balances for addresses."
+    },
+    {
+      "name": "Historical Transactions",
+      "description": "Data on past transactions for a specific address."
+    },
+    {
+      "name": "Miscellaneous Data Endpoints",
+      "description": "Genernal data endpoints."
+    },
+    {
+      "name": "Zap In",
+      "description": "Endpoints for creating transactions for adding liquidity to different applications."
+    },
+    {
+      "name": "Zap Out",
+      "description": "Endpoints for creating transactions for removing liquidity from an application."
+    },
+    {
+      "name": "Exchange",
+      "description": "Returns an easy to submit transaction for exchanging assets."
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://api.zapper.fi"
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basic": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "Enter your personal api key as username with a blank password"
+      }
+    },
+    "schemas": {
+      "GasPricesResponse": {
+        "type": "object",
+        "properties": {
+          "standard": {
+            "type": "object",
+            "description": "Standard gas price (gwei)"
+          },
+          "fast": {
+            "type": "object",
+            "description": "Fast gas price (gwei)"
+          },
+          "instant": {
+            "type": "object",
+            "description": "Instant gas price (gwei)"
+          },
+          "eip1559": {
+            "type": "boolean",
+            "description": "Is gas price according to EIP1559"
+          }
+        },
+        "required": [
+          "standard",
+          "fast",
+          "instant",
+          "eip1559"
+        ]
+      },
+      "Transaction": {
+        "type": "object",
+        "properties": {
+          "gasPrice": {
+            "type": "string",
+            "description": "Gas price (wei)"
+          },
+          "maxFeePerGas": {
+            "type": "string",
+            "description": "Max gas fee (wei)"
+          },
+          "maxPriorityFeePerGas": {
+            "type": "string",
+            "description": "Max priority gas fee (wei)"
+          },
+          "from": {
+            "type": "string",
+            "description": "The address for the sending account"
+          },
+          "to": {
+            "type": "string",
+            "description": "The destination address of the message"
+          },
+          "value": {
+            "type": "string",
+            "description": "The value transferred for the transaction in wei"
+          },
+          "gas": {
+            "type": "string",
+            "description": "The amount of gas to use for the transaction"
+          },
+          "data": {
+            "type": "string",
+            "description": "ABI byte string containing the data of the function call on a contract"
+          }
+        },
+        "required": [
+          "from",
+          "to",
+          "value",
+          "gas",
+          "data"
+        ]
+      }
+    }
+  }
+}

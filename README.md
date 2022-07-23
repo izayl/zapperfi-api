@@ -25,15 +25,16 @@ $ pnpm add zapperfi-api
 
 ## API
 
-all the [zapperfi v2 api](https://api.zapper.fi/api/static/index.html) have wrappered.
+the [zapperfi v2 api](https://api.zapper.fi/api/static/index.html) have been wrapped.
 
-- [apps](src/v2/methods/apps.ts)
-- [balances](src/v2/methods/balances.ts)
-- [exchange](src/v2/methods/exchange.ts)
-- [misc](src/v2/methods/misc.ts)
-- [transactions](src/v2/method/transactions.ts)
-- [zapIn](src/v2/methods/zapIn.ts)
-- [zapOut](src/v2/methods/zapOut.ts)
+- [x] [apps](src/v2/methods/apps.ts)
+- [x] [balances](src/v2/methods/balances.ts)
+- [x] [exchange](src/v2/methods/exchange.ts)
+- [x] [misc](src/v2/methods/misc.ts)
+- [x] [transactions](src/v2/method/transactions.ts)
+- [x] [zapIn](src/v2/methods/zapIn.ts)
+- [x] [zapOut](src/v2/methods/zapOut.ts)
+- [ ] nft
 
 ## Examples
 
