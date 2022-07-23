@@ -1,5 +1,5 @@
 import { V2Client, V2Models } from '../../src'
-import { config } from './config'
+import { config } from '../config'
 
 const { ZapType } = V2Models
 
@@ -39,7 +39,7 @@ describe('/v2/zap-out | Endpoints for creating transactions for removing liquidi
       const parameters = {
         type: ZapType.BASE,
         appId: 'aave-v2',
-        ownerAddress: 'vitalik.eth',
+        ownerAddress: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
         sellTokenAddress: '0x028171bca77440897b824ca71d1c56cac55b68a3',
         amount: 1 * 10 ** 18,
       }
@@ -64,7 +64,7 @@ describe('/v2/zap-out | Endpoints for creating transactions for removing liquidi
       const parameters = {
         type: ZapType.BASE,
         appId: 'aave-v2',
-        ownerAddress: 'vitalik.eth',
+        ownerAddress: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
         sellTokenAddress: '0x028171bca77440897b824ca71d1c56cac55b68a3',
         amount: 1 * 10 ** 18,
       }
@@ -89,7 +89,7 @@ describe('/v2/zap-out | Endpoints for creating transactions for removing liquidi
       const parameters = {
         type: ZapType.BASE,
         appId: 'aave-v2',
-        ownerAddress: 'vitalik.eth',
+        ownerAddress: '0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D',
         sellAmount: 1 * 10 ** 18,
         toTokenAddress: '0x028171bca77440897b824ca71d1c56cac55b68a3',
         poolAddress: '0x028171bca77440897b824ca71d1c56cac55b68a3',

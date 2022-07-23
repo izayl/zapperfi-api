@@ -1,15 +1,15 @@
 import { V2Client, V2Models } from '../../src'
-import { config } from './config'
+import { config } from '../config'
 
-const { Network, Currency, TimeFrame } = V2Models
+const { Network } = V2Models
 
 describe('balances | Gets balances of different supported applications for a specific address.', () => {
-  const client = new V2Client(config)
+  const mockClient = new V2Client(config)
   let request = jest.fn()
 
   const resetMock = () => {
     request = jest.fn()
-    client.sendRequest = request
+    mockClient.sendRequest = request
   }
 
   describe('GET /v2/apps/{appId}/balance', () => {
@@ -18,10 +18,10 @@ describe('balances | Gets balances of different supported applications for a spe
     it('should accept following parameters', () => {
       const parameters = {
         appId: 'aave-v2',
-        addresses: ['vitalik.eth'],
+        addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
         network: Network.ETHEREUM_MAINNET,
       }
-      client.balances.getAppBalance(parameters)
+      mockClient.balances.getAppBalance(parameters)
 
       const { appId, ...params } = parameters
 
@@ -44,7 +44,7 @@ describe('balances | Gets balances of different supported applications for a spe
         addresses: ['0x028171bca77440897b824ca71d1c56cac55b68a3'],
       }
 
-      client.balances.supported(parameters)
+      mockClient.balances.supported(parameters)
       expect(request).toBeCalledTimes(1)
       expect(request.mock.calls[0]).toEqual([
         {
@@ -62,10 +62,10 @@ describe('balances | Gets balances of different supported applications for a spe
     it('should accept following parameters', () => {
       const parameters = {
         network: [Network.ETHEREUM_MAINNET, Network.ARBITRUM_MAINNET],
-        addresses: ['vitalik.eth'],
+        addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
       }
 
-      client.balances.get(parameters)
+      mockClient.balances.get(parameters)
       expect(request).toBeCalledTimes(1)
       expect(request.mock.calls[0]).toEqual([
         {

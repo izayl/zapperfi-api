@@ -1,6 +1,6 @@
 import { V2Client } from '../../src'
 import { Network } from '../../src/v2/models'
-import { config } from './config'
+import { config } from '../config'
 
 describe('/v2/exchange | Returns an easy to submit transaction for exchanging assets.', () => {
   const client = new V2Client(config)

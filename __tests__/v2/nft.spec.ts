@@ -1,6 +1,5 @@
 import { V2Client } from '../../src'
-import { Network } from '../../src/v2/models'
-import { config } from './config'
+import { config } from '../config'
 
 describe('/v2/nft | Get Ethereum NFT balances for addresses.', () => {
   const client = new V2Client(config)
@@ -16,7 +15,7 @@ describe('/v2/nft | Get Ethereum NFT balances for addresses.', () => {
 
     it('should accept following parameters', () => {
       const parameters = {
-        addresses: ['vitalik.eth'],
+        addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
       }
       client.nft.getNetWorth(parameters)
 
@@ -36,7 +35,7 @@ describe('/v2/nft | Get Ethereum NFT balances for addresses.', () => {
 
     it('should accept following parameters', () => {
       const parameters = {
-        addresses: ['vitalik.eth'],
+        addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
       }
 
       client.nft.getCollections(parameters)
@@ -57,7 +56,7 @@ describe('/v2/nft | Get Ethereum NFT balances for addresses.', () => {
 
     it('should accept following url/parameters', () => {
       const parameters = {
-        addresses: ['vitalik.eth'],
+        addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
       }
       client.nft.getCollectionsTotals(parameters)
 
@@ -77,7 +76,7 @@ describe('/v2/nft | Get Ethereum NFT balances for addresses.', () => {
 
     it('should accept following url/parameters', () => {
       const parameters = {
-        addresses: ['vitalik.eth'],
+        addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
       }
       client.nft.getTokens(parameters)
 
@@ -97,7 +96,7 @@ describe('/v2/nft | Get Ethereum NFT balances for addresses.', () => {
 
     it('should accept following url/parameters', () => {
       const parameters = {
-        addresses: ['vitalik.eth'],
+        addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
       }
       client.nft.getTokensTotals(parameters)
 
