@@ -19,6 +19,6 @@ export class V2Client extends BaseClient {
   zapIn = new ZapIn(this)
   zapOut = new ZapOut(this)
   exchange = new Exchange(this)
-  balances = new Balances(this)
+  balances = new Balances(this, this.config)
   nft = new NFT(this)
 }

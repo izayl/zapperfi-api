@@ -17,8 +17,11 @@ export class SSEClient {
     }
   }
 
-  public setup = (config: SSEConfig) => {
-    this.config = config
+  public setup = (config: Partial<SSEConfig>) => {
+    this.config = {
+      ...this.config,
+      ...config,
+    }
   }
 
   private prepareClient = () => {
@@ -34,7 +37,7 @@ export class SSEClient {
       url: apiHost + pathname,
       query,
     },
-    { arrayFormat: 'index' },
+    { arrayFormat: 'bracket' },
     )
 
     const initDict = this.generateEventSourceDict(apiKey, dict)
