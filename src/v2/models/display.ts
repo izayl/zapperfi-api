@@ -1,3 +1,5 @@
+import { MetaType } from './position'
+
 //  DISPLAY PROPS
 export type TranslationDisplayItem = {
   type: 'translation'
