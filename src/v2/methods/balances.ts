@@ -1,4 +1,5 @@
 import { Callback, Client, Config, RequestConfig, SSECallback, SSECallbackData, SSEClient } from '../../client'
+import { PresentedBalancePayload, TokenBalanceResponse, TokenSupportResponse } from '../models'
 import * as Parameters from '../parameters'
 
 /**
@@ -17,9 +18,9 @@ export class Balances {
   /**
    * Gets the balances for given addresses.
    */
-  async get<T>(params: Parameters.BalancesGet, callback: SSECallback<T>): Promise<void>
-  async get<T>(params: Parameters.BalancesGet, callback?: never): Promise<T[]>
-  async get<T>(params: Parameters.BalancesGet, callback?: SSECallback<T> | never): Promise<T[] | void> {
+  async get<T = PresentedBalancePayload>(params: Parameters.BalancesGet, callback: SSECallback<T>): Promise<void>
+  async get<T = PresentedBalancePayload>(params: Parameters.BalancesGet, callback?: never): Promise<T[]>
+  async get<T = PresentedBalancePayload>(params: Parameters.BalancesGet, callback?: SSECallback<T> | never): Promise<T[] | void> {
     this.eventSource.setup({
       pathname: '/v2/balances',
       query: params,
@@ -28,7 +29,7 @@ export class Balances {
 
     const callbackResponseHandler = callback && ((data: SSECallbackData<T>): void => callback(null, data))
     let resolve: (value: T[]) => void
-    let reject: (reason?: any) => void
+    let reject: (reason?: unknown) => void
 
     const defaultCallbackHandler: Promise<T[]> = new Promise((_resolve, _reject) => {
       resolve = _resolve
@@ -54,7 +55,7 @@ export class Balances {
       data.push(JSON.parse(evt.data))
     })
 
-    this.eventSource.addEventListener('end', (evt: MessageEvent) => {
+    this.eventSource.addEventListener('end', () => {
       this.eventSource.close()
       if (callbackResponseHandler) {
         callbackResponseHandler({
@@ -74,9 +75,9 @@ export class Balances {
   /**
    * get wallets balance by appId
    */
-  async getAppBalance<T>(parameters: Parameters.BalancesAppBalance, callback: Callback<T>): Promise<void>
-  async getAppBalance<T>(parameters: Parameters.BalancesAppBalance, callback?: never): Promise<T>
-  async getAppBalance<T>(parameters: Parameters.BalancesAppBalance, callback?: Callback<T> | never): Promise<T | void> {
+  async getAppBalance<T = TokenBalanceResponse>(parameters: Parameters.BalancesAppBalance, callback: Callback<T>): Promise<void>
+  async getAppBalance<T = TokenBalanceResponse>(parameters: Parameters.BalancesAppBalance, callback?: never): Promise<T>
+  async getAppBalance<T = TokenBalanceResponse>(parameters: Parameters.BalancesAppBalance, callback?: Callback<T> | never): Promise<T | void> {
     const { appId, ...params } = parameters
     const config: RequestConfig = {
       url: `/v2/apps/${appId}/balances`,
@@ -90,9 +91,9 @@ export class Balances {
   /**
    * get all the apps info have participated for given addresses
    */
-  async supported<T>(params: Parameters.BalancesSupported, callback: Callback<T>): Promise<void>
-  async supported<T>(params: Parameters.BalancesSupported, callback?: never): Promise<T>
-  async supported<T>(params: Parameters.BalancesSupported, callback?: Callback<T> | never): Promise<T | void> {
+  async supported<T = TokenSupportResponse>(params: Parameters.BalancesSupported, callback: Callback<T>): Promise<void>
+  async supported<T = TokenSupportResponse>(params: Parameters.BalancesSupported, callback?: never): Promise<T>
+  async supported<T = TokenSupportResponse>(params: Parameters.BalancesSupported, callback?: Callback<T> | never): Promise<T | void> {
     const config: RequestConfig = {
       url: '/v2/apps/balances/supported',
       method: 'GET',
