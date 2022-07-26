@@ -11,7 +11,7 @@
   "homepage": "https://github.com/izayl/zapperfi-api#readme",
   "main": "dist/zapperfi-api.umd.js",
   "module": "dist/zapperfi-api.es5.js",
-  "typings": "dist/types/zapperfi-api.d.ts",
+  "typings": "dist/types/index.d.ts",
   "files": [
     "dist"
   ],
