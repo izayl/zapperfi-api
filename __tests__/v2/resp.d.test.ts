@@ -1,10 +1,10 @@
-import getBalance from '../../dist/resp/balances.get.json'
-import getAppBalance from '../../dist/resp/balances.getAppBalance.json'
-import balancesSupported from '../../dist/resp/balances.supported.json'
-import transactions from '../../dist/resp/transactions.get.json'
-import miscPrices from '../../dist/resp/misc.prices.json'
-import miscTokenPrices from '../../dist/resp/misc.getTokenPrices.json'
-import miscGasPrices from '../../dist/resp/misc.getGasPrices.json'
+import getBalance from '../../.cache/balances.get.json'
+import getAppBalance from '../../.cache/balances.getAppBalance.json'
+import balancesSupported from '../../.cache/balances.supported.json'
+import transactions from '../../.cache/transactions.get.json'
+import miscPrices from '../../.cache/misc.prices.json'
+import miscTokenPrices from '../../.cache/misc.getTokenPrices.json'
+import miscGasPrices from '../../.cache/misc.getGasPrices.json'
 import * as Responses from '../../src/v2/responses'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

@@ -6,7 +6,7 @@ import { Currency, Network, TimeFrame } from '../src/v2/models'
 import { config } from './config'
 
 const client = new V2Client(config)
-const tempPath = path.resolve(__dirname, '../dist/resp')
+const tempPath = path.resolve(__dirname, '../.cache')
 
 if (!fs.existsSync(tempPath)) {
   fs.mkdirSync(tempPath, { recursive: true })
