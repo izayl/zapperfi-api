@@ -2,7 +2,7 @@ import { SSEClient } from '../../src/client/sseClient'
 import { Network } from '../../src/v2/models'
 import { config } from '../config'
 
-jest.setTimeout(5 * 1000)
+jest.setTimeout(15 * 1000)
 describe('sse client', () => {
   it('should received message', done => {
     const balanceSSE = new SSEClient({

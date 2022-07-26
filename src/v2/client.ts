@@ -3,6 +3,11 @@ import { Apps, Balances, Exchange, Misc, NFT, Transactions, ZapIn, ZapOut } from
 
 const DefaultV2ClientConfig: Partial<Config> = {
   apiHost: 'https://api.zapper.fi',
+  baseRequestConfig: {
+    headers: {
+      Accept: 'application/json',
+    },
+  },
 }
 
 export class V2Client extends BaseClient {

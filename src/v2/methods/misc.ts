@@ -1,5 +1,6 @@
 import { Callback, Client, RequestConfig } from '../../client'
 import * as Parameters from '../parameters'
+import * as Responses from '../responses'
 
 /**
  * Miscellaneous Data Endpoints
@@ -14,9 +15,9 @@ export class Misc {
    *
    * Retrieve supported tokens and their prices
    */
-  async prices<T>(params: Parameters.MiscPrices, callback: Callback<T>): Promise<void>
-  async prices<T>(params: Parameters.MiscPrices, callback?: never): Promise<T>
-  async prices<T>(params: Parameters.MiscPrices, callback?: Callback<T> | never): Promise<T | void> {
+  async prices<T = Responses.MiscPricesResp>(params: Parameters.MiscPrices, callback: Callback<T>): Promise<void>
+  async prices<T = Responses.MiscPricesResp>(params: Parameters.MiscPrices, callback?: never): Promise<T>
+  async prices<T = Responses.MiscPricesResp>(params: Parameters.MiscPrices, callback?: Callback<T> | never): Promise<T | void> {
     const config: RequestConfig = {
       url: '/v2/prices',
       method: 'GET',
@@ -33,9 +34,9 @@ export class Misc {
    *
    * Retrieve given token and its prices
    */
-  async getTokenPrices<T>(params: Parameters.MiscTokenPrices, callback: Callback<T>): Promise<void>
-  async getTokenPrices<T>(params: Parameters.MiscTokenPrices, callback?: never): Promise<T>
-  async getTokenPrices<T>(params: Parameters.MiscTokenPrices, callback?: Callback<T> | never): Promise<T | void> {
+  async getTokenPrices<T = Responses.MiscTokenPricesResp>(params: Parameters.MiscTokenPrices, callback: Callback<T>): Promise<void>
+  async getTokenPrices<T = Responses.MiscTokenPricesResp>(params: Parameters.MiscTokenPrices, callback?: never): Promise<T>
+  async getTokenPrices<T = Responses.MiscTokenPricesResp>(params: Parameters.MiscTokenPrices, callback?: Callback<T> | never): Promise<T | void> {
     const config: RequestConfig = {
       url: `/v2/prices/${params.tokenAddress}`,
       method: 'GET',
@@ -54,9 +55,9 @@ export class Misc {
    *
    * Retrieve a gas price aggregated from multiple different sources
    */
-  async getGasPrices<T>(params: Parameters.MiscGasPrices, callback: Callback<T>): Promise<void>
-  async getGasPrices<T>(params: Parameters.MiscGasPrices, callback?: never): Promise<T>
-  async getGasPrices<T>(params: Parameters.MiscGasPrices, callback?: Callback<T> | never): Promise<T | void> {
+  async getGasPrices<T = Responses.MiscGasPricesResp>(params: Parameters.MiscGasPrices, callback: Callback<T>): Promise<void>
+  async getGasPrices<T = Responses.MiscGasPricesResp>(params: Parameters.MiscGasPrices, callback?: never): Promise<T>
+  async getGasPrices<T = Responses.MiscGasPricesResp>(params: Parameters.MiscGasPrices, callback?: Callback<T> | never): Promise<T | void> {
     const config: RequestConfig = {
       url: '/v2/gas-prices',
       method: 'GET',
