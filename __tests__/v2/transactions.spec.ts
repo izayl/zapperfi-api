@@ -22,7 +22,7 @@ describe('/v2/transactions | Historical Transactions.', () => {
       client.transactions.get(parameters)
 
       expect(request).toBeCalledTimes(1)
-      expect(request.mock.calls[0]).toEqual([
+      expect(request.mock.calls[0]).toMatchObject([
         {
           method: 'GET',
           params: parameters,
@@ -39,7 +39,7 @@ describe('/v2/transactions | Historical Transactions.', () => {
       client.transactions.get(parameters)
 
       expect(request).toBeCalledTimes(1)
-      expect(request.mock.calls[0]).toEqual([
+      expect(request.mock.calls[0]).toMatchObject([
         {
           method: 'GET',
           params: parameters,

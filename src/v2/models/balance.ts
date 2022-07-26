@@ -88,13 +88,11 @@ export type ProductItem = {
 
 export type MetadataItemWithLabel = MetadataItem & { label: string };
 
-export interface TokenBalanceByApp {
+export interface TokenBalanceResponse {
   products: ProductItem[]
   meta: MetadataItemWithLabel[]
   error?: string
 }
-
-export type TokenBalanceResponse = { balances: Record<Address, TokenBalanceByApp> }
 
 export type TokenSupportApp = {
   appId: string
@@ -109,5 +107,3 @@ export interface TokenSupportByNetwork {
   network: Network
   apps: TokenSupportApp[]
 }
-
-export type TokenSupportResponse = TokenSupportByNetwork[]

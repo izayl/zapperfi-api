@@ -1,6 +1,7 @@
 import { Callback, Client, Config, RequestConfig, SSECallback, SSECallbackData, SSEClient } from '../../client'
-import { PresentedBalancePayload, TokenBalanceResponse, TokenSupportResponse } from '../models'
+import { PresentedBalancePayload } from '../models'
 import * as Parameters from '../parameters'
+import * as Responses from '../responses'
 
 /**
  * Gets balances of different supported applications for a specific address.
@@ -75,9 +76,9 @@ export class Balances {
   /**
    * get wallets balance by appId
    */
-  async getAppBalance<T = TokenBalanceResponse>(parameters: Parameters.BalancesAppBalance, callback: Callback<T>): Promise<void>
-  async getAppBalance<T = TokenBalanceResponse>(parameters: Parameters.BalancesAppBalance, callback?: never): Promise<T>
-  async getAppBalance<T = TokenBalanceResponse>(parameters: Parameters.BalancesAppBalance, callback?: Callback<T> | never): Promise<T | void> {
+  async getAppBalance<T = Responses.BalancesAppBalanceResp>(parameters: Parameters.BalancesAppBalance, callback: Callback<T>): Promise<void>
+  async getAppBalance<T = Responses.BalancesAppBalanceResp>(parameters: Parameters.BalancesAppBalance, callback?: never): Promise<T>
+  async getAppBalance<T = Responses.BalancesAppBalanceResp>(parameters: Parameters.BalancesAppBalance, callback?: Callback<T> | never): Promise<T | void> {
     const { appId, ...params } = parameters
     const config: RequestConfig = {
       url: `/v2/apps/${appId}/balances`,
@@ -91,9 +92,9 @@ export class Balances {
   /**
    * get all the apps info have participated for given addresses
    */
-  async supported<T = TokenSupportResponse>(params: Parameters.BalancesSupported, callback: Callback<T>): Promise<void>
-  async supported<T = TokenSupportResponse>(params: Parameters.BalancesSupported, callback?: never): Promise<T>
-  async supported<T = TokenSupportResponse>(params: Parameters.BalancesSupported, callback?: Callback<T> | never): Promise<T | void> {
+  async supported<T = Responses.BalancesSupportedResp>(params: Parameters.BalancesSupported, callback: Callback<T>): Promise<void>
+  async supported<T = Responses.BalancesSupportedResp>(params: Parameters.BalancesSupported, callback?: never): Promise<T>
+  async supported<T = Responses.BalancesSupportedResp>(params: Parameters.BalancesSupported, callback?: Callback<T> | never): Promise<T | void> {
     const config: RequestConfig = {
       url: '/v2/apps/balances/supported',
       method: 'GET',

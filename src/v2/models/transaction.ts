@@ -20,13 +20,13 @@ export interface Transaction {
     amount: number | string
     address: Address
   }>
-  nonce: number
-  gasPrice: 9.3312870172e-8
-  'gasLimit': 0.016053732810131224
-  'input': '0x2e95b6c8'
-  'gas': 0.010942613659330096
-  'txSuccessful': true
-  'account': '0xfd2afed55f7cf1fe491a585498657efe6a31227e'
-  'fromEns': null
-  'accountEns': null
+  nonce: string
+  gasPrice: number
+  gasLimit: number
+  input: string
+  gas: number
+  txSuccessful: boolean
+  account: Address
+  fromEns: string | null
+  accountEns: string | null
 }

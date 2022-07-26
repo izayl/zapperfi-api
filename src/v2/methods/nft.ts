@@ -1,5 +1,6 @@
 import { Callback, Client, RequestConfig } from '../../client'
 import * as Parameters from '../parameters'
+import * as Responses from '../responses'
 
 /**
  * Get Ethereum NFT balances for addresses.
