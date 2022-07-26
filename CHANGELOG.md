@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/izayl/zapperfi-api/compare/v0.0.5...v0.0.6) (2022-07-26)
+
+
+### Features
+
+* add api response type define ([#10](https://github.com/izayl/zapperfi-api/issues/10)) ([2257c07](https://github.com/izayl/zapperfi-api/commit/2257c0777f8fc28925e643d36aa3b8885e4ada76))
+
 ### [0.0.5](https://github.com/izayl/zapperfi-api/compare/v0.0.4...v0.0.5) (2022-07-23)
 
 

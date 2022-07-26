@@ -1,6 +1,6 @@
 {
   "name": "zapperfi-api",
-  "version": "0.0.6-1",
+  "version": "0.0.6",
   "description": "Unofficial wrapper for the Zapperfi API",
   "repository": "git@github.com:izayl/zapperfi-api.git",
   "author": "izayl <izayl@163.com>",
