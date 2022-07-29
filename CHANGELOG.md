@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.7](https://github.com/izayl/zapperfi-api/compare/v0.0.6...v0.0.7) (2022-07-29)
+
+
+### Bug Fixes
+
+* remove pnpm preinstall hook ([c64b2e2](https://github.com/izayl/zapperfi-api/commit/c64b2e21d188bc3f64443008eed11cd1d5feba1c))
+
 ### [0.0.6](https://github.com/izayl/zapperfi-api/compare/v0.0.5...v0.0.6) (2022-07-26)
 
 
