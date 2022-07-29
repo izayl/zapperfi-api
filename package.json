@@ -16,7 +16,6 @@
     "dist"
   ],
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable && npm run build",
     "postpublish": "pinst --enable",
