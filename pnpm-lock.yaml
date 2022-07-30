@@ -4,7 +4,7 @@ specifiers:
   '@commitlint/cli': 17.0.3
   '@commitlint/config-conventional': 17.0.3
   '@izayl/eslint-config-ts': 0.4.2
-  '@rollup/plugin-typescript': 8.3.3
+  '@rollup/plugin-typescript': 8.3.4
   '@types/eventsource': 1.1.9
   '@types/jest': 28.1.6
   '@types/node': 18.0.6
@@ -39,7 +39,7 @@ devDependencies:
   '@commitlint/cli': 17.0.3
   '@commitlint/config-conventional': 17.0.3
   '@izayl/eslint-config-ts': 0.4.2_he2ccbldppg44uulnyq4rwocfa
-  '@rollup/plugin-typescript': 8.3.3_oo3i3f3qmqiztdz5qgxrrjmd5e
+  '@rollup/plugin-typescript': 8.3.4_oo3i3f3qmqiztdz5qgxrrjmd5e
   '@types/eventsource': 1.1.9
   '@types/jest': 28.1.6
   '@types/node': 18.0.6
@@ -978,8 +978,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@rollup/plugin-typescript/8.3.3_oo3i3f3qmqiztdz5qgxrrjmd5e:
-    resolution: {integrity: sha512-55L9SyiYu3r/JtqdjhwcwaECXP7JeJ9h1Sg1VWRJKIutla2MdZQodTgcCNybXLMCnqpNLEhS2vGENww98L1npg==}
+  /@rollup/plugin-typescript/8.3.4_oo3i3f3qmqiztdz5qgxrrjmd5e:
+    resolution: {integrity: sha512-wt7JnYE9antX6BOXtsxGoeVSu4dZfw0dU3xykfOQ4hC3EddxRbVG/K0xiY1Wup7QOHJcjLYXWAn0Kx9Z1SBHHg==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
       rollup: ^2.14.0
