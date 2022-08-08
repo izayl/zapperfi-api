@@ -15,6 +15,24 @@ describe('balances | Gets balances of different supported applications for a spe
     mockClient.sendRequest = request
   }
 
+  describe('Auth', () => {
+    const parameters = {
+      networks: [Network.ETHEREUM_MAINNET],
+      addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
+    }
+    it('should throw error when no apiKey is provided', () => {
+      const client = new V2Client({ apiKey: 'foo' })
+      client.balances.get(parameters, err => {
+        expect(err).toBeDefined()
+      })
+    })
+    it('should not throw an error when an apiKey is provided', () => {
+      client.balances.get(parameters, err => {
+        expect(err).toBeNull()
+      })
+    })
+  })
+
   describe('GET /v2/apps/{appId}/balance', () => {
     beforeEach(resetMock)
 
@@ -66,7 +84,7 @@ describe('balances | Gets balances of different supported applications for a spe
       addresses: ['0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D'],
     }
 
-    it('should not use axios client', (done) => {
+    it('should not use axios client', done => {
       mockClient.balances.get(parameters, (err, data) => {
         if (err) done(err)
         if (data?.type === 'full') done()
@@ -74,7 +92,7 @@ describe('balances | Gets balances of different supported applications for a spe
       expect(request).toBeCalledTimes(0)
     })
 
-    it('should use callback to accept response partially and fully', (done) => {
+    it('should use callback to accept response partially and fully', done => {
       const resp = [] as any[]
       const callback: SSECallback<any> = (err, data): void => {
         expect(err).toBeNull()
@@ -99,7 +117,9 @@ describe('balances | Gets balances of different supported applications for a spe
     it('should use async/await function to accept fully response', async () => {
       const resp1 = await client.balances.get(parameters)
       let res: (value: unknown) => void
-      const p = new Promise((resolve) => { res = resolve })
+      const p = new Promise(resolve => {
+        res = resolve
+      })
 
       const callback: SSECallback<any> = (err, data): void => {
         expect(err).toBeNull()

@@ -56,7 +56,7 @@ export class SSEClient {
       headers: {
         'Content-Type': 'text/event-stream',
         'User-Agent': 'Mozilla/5.0',
-        Authorization: `Basic ${Buffer.from(`${apiKey}: `).toString('base64')}`,
+        Authorization: `Basic ${Buffer.from(`${apiKey}:`).toString('base64')}`,
         ...headers,
       },
       proxy,
