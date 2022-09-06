@@ -4,7 +4,7 @@ specifiers:
   '@commitlint/cli': 17.0.3
   '@commitlint/config-conventional': 17.0.3
   '@izayl/eslint-config-ts': 0.4.2
-  '@rollup/plugin-typescript': 8.3.4
+  '@rollup/plugin-typescript': 8.5.0
   '@types/eventsource': 1.1.9
   '@types/jest': 28.1.6
   '@types/node': 18.0.6
@@ -39,7 +39,7 @@ devDependencies:
   '@commitlint/cli': 17.0.3
   '@commitlint/config-conventional': 17.0.3
   '@izayl/eslint-config-ts': 0.4.2_he2ccbldppg44uulnyq4rwocfa
-  '@rollup/plugin-typescript': 8.3.4_oo3i3f3qmqiztdz5qgxrrjmd5e
+  '@rollup/plugin-typescript': 8.5.0_oo3i3f3qmqiztdz5qgxrrjmd5e
   '@types/eventsource': 1.1.9
   '@types/jest': 28.1.6
   '@types/node': 18.0.6
@@ -978,8 +978,8 @@ packages:
       fastq: 1.13.0
     dev: true
 
-  /@rollup/plugin-typescript/8.3.4_oo3i3f3qmqiztdz5qgxrrjmd5e:
-    resolution: {integrity: sha512-wt7JnYE9antX6BOXtsxGoeVSu4dZfw0dU3xykfOQ4hC3EddxRbVG/K0xiY1Wup7QOHJcjLYXWAn0Kx9Z1SBHHg==}
+  /@rollup/plugin-typescript/8.5.0_oo3i3f3qmqiztdz5qgxrrjmd5e:
+    resolution: {integrity: sha512-wMv1/scv0m/rXx21wD2IsBbJFba8wGF3ErJIr6IKRfRj49S85Lszbxb4DCo8iILpluTjk2GAAu9CoZt4G3ppgQ==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
       rollup: ^2.14.0
@@ -1943,8 +1943,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      is-text-path: 1.0.1
       JSONStream: 1.3.5
+      is-text-path: 1.0.1
       lodash: 4.17.21
       meow: 8.1.2
       split2: 3.2.2
