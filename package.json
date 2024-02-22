@@ -71,7 +71,7 @@
     }
   },
   "dependencies": {
-    "axios": "^0.27.2",
+    "axios": "^0.28.0",
     "eventsource": "^2.0.2",
     "query-string": "^7.1.1"
   },
