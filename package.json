@@ -34,8 +34,8 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "17.0.3",
-    "@commitlint/config-conventional": "17.0.3",
+    "@commitlint/cli": "17.8.1",
+    "@commitlint/config-conventional": "17.8.1",
     "@izayl/eslint-config-ts": "0.4.2",
     "@rollup/plugin-typescript": "8.3.4",
     "@types/eventsource": "1.1.9",
