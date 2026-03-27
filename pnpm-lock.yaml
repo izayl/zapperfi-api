@@ -5,7 +5,7 @@ specifiers:
   '@commitlint/config-conventional': 17.0.3
   '@izayl/eslint-config-ts': 0.4.2
   '@rollup/plugin-typescript': 8.3.4
-  '@types/eventsource': 1.1.9
+  '@types/eventsource': 1.1.15
   '@types/jest': 28.1.6
   '@types/node': 18.0.6
   axios: ^0.27.2
@@ -40,7 +40,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.3
   '@izayl/eslint-config-ts': 0.4.2_he2ccbldppg44uulnyq4rwocfa
   '@rollup/plugin-typescript': 8.3.4_oo3i3f3qmqiztdz5qgxrrjmd5e
-  '@types/eventsource': 1.1.9
+  '@types/eventsource': 1.1.15
   '@types/jest': 28.1.6
   '@types/node': 18.0.6
   dotenv: 16.0.1
@@ -1072,8 +1072,8 @@ packages:
     resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
     dev: true
 
-  /@types/eventsource/1.1.9:
-    resolution: {integrity: sha512-F3K4oyM12o8W9jxuJmW+1sc8kdw0Hj0t+26urwkcolPJTgkfppEfIdftdcXmUU2QPBIwcrYO6diqgIqgCDf1FA==}
+  /@types/eventsource/1.1.15:
+    resolution: {integrity: sha512-XQmGcbnxUNa06HR3VBVkc9+A2Vpi9ZyLJcdS5dwaQQ/4ZMWFO+5c90FnMUpbtMZwB/FChoYHwuVg8TvkECacTA==}
     dev: true
 
   /@types/graceful-fs/4.1.5:
@@ -1943,8 +1943,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      is-text-path: 1.0.1
       JSONStream: 1.3.5
+      is-text-path: 1.0.1
       lodash: 4.17.21
       meow: 8.1.2
       split2: 3.2.2
